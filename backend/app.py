@@ -26,6 +26,23 @@ def allowed_file(filename):
 
 # Load models
 models = {}
+scalers = {}
+try:
+    # Diabetes scaler
+    diabetes_scaler_path = os.path.join(MODELS_FOLDER, 'scaler_diabetes.sav')
+    if os.path.exists(diabetes_scaler_path):
+        scalers['diabetes'] = joblib.load(open(diabetes_scaler_path, 'rb'))
+        print("✅ Loaded scaler for diabetes")
+
+    # Parkinson scaler
+    parkinsons_scaler_path = os.path.join(MODELS_FOLDER, 'scaler_parkinson.sav')
+    if os.path.exists(parkinsons_scaler_path):
+        scalers['parkinsons'] = joblib.load(open(parkinsons_scaler_path, 'rb'))
+        print("✅ Loaded scaler for parkinsons")
+
+except Exception as e:
+    print(f"Error loading scalers: {e}")
+    
 try:
     # Diabetes model
     diabetes_path = None
@@ -123,9 +140,15 @@ def predict(disease_type):
         
         # Make prediction
         features_array = np.array([features])
+
+        # Apply scaler if exists
+        if disease_type in scalers:
+            features_array = scalers[disease_type].transform(features_array)
+
+        # Prediction and probability
         prediction = models[disease_type].predict(features_array)[0]
         probability = models[disease_type].predict_proba(features_array)[0] if hasattr(models[disease_type], 'predict_proba') else None
-        
+
         result = 'Positive' if prediction == 1 else 'Negative'
         
         response = {
