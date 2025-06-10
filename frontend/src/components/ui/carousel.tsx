@@ -2,10 +2,14 @@ import * as React from "react"
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react"
-import { ArrowLeft, ArrowRight } from "lucide-react"
+// Remove lucide-react arrows
+// import { ArrowLeft, ArrowRight } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+
+// Import your SVG logo as a React component
+import { ReactComponent as DiagnosifyLogo } from "@/assets/diagnosify-logo.svg"
 
 type CarouselApi = UseEmblaCarouselType[1]
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>
@@ -214,7 +218,7 @@ const CarouselPrevious = React.forwardRef<
       onClick={scrollPrev}
       {...props}
     >
-      <ArrowLeft className="h-4 w-4" />
+      <DiagnosifyLogo className="h-4 w-4" />
       <span className="sr-only">Previous slide</span>
     </Button>
   )
@@ -243,7 +247,7 @@ const CarouselNext = React.forwardRef<
       onClick={scrollNext}
       {...props}
     >
-      <ArrowRight className="h-4 w-4" />
+      <DiagnosifyLogo className="h-4 w-4" />
       <span className="sr-only">Next slide</span>
     </Button>
   )
@@ -253,8 +257,12 @@ CarouselNext.displayName = "CarouselNext"
 export {
   type CarouselApi,
   Carousel,
-  CarouselContent,
-  CarouselItem,
+  CarouselContent, CarouselContent,
+  CarouselItem,  CarouselItem,
   CarouselPrevious,
+  CarouselNext,
+}
+
+}  CarouselNext,  CarouselPrevious,  CarouselPrevious,
   CarouselNext,
 }
