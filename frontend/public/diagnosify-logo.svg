@@ -1,0 +1,35 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="heartGradient" x1="0" y1="0" x2="256" y2="256" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#17C3B2"/>
+      <stop offset="1" stop-color="#2274A5"/>
+    </linearGradient>
+    <linearGradient id="boltGradient" x1="128" y1="60" x2="128" y2="196" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FFAE"/>
+      <stop offset="1" stop-color="#43C6AC"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- Heart Shape -->
+  <path
+    d="M128 216C128 216 32 144 32 88C32 50 66 28 100 44C116 52 128 68 128 68C128 68 140 52 156 44C190 28 224 50 224 88C224 144 128 216 128 216Z"
+    fill="url(#heartGradient)"
+    stroke="#00FFD0"
+    stroke-width="6"
+    filter="url(#glow)"
+  />
+  <!-- Thunderbolt (centered) -->
+  <path
+    d="M128 88L112 130H126L116 168L144 120H130L138 88Z"
+    fill="url(#boltGradient)"
+    stroke="#F8FFAE"
+    stroke-width="4"
+    filter="url(#glow)"
+  />
+</svg>
