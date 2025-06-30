@@ -6,9 +6,12 @@ A modern web application for disease prediction using machine learning models. T
 
 - **Multiple Disease Predictions**: Diabetes, Heart Disease, and Parkinson's Disease
 - **Real Model Integration**: Uses your trained .sav model files
-- **Dataset Upload**: Upload CSV files to create new disease prediction models
 - **Responsive Design**: Modern UI optimized for desktop and mobile
 - **RESTful API**: Flask backend with proper error handling
+
+## Future Works / Concept Features
+
+- **Dataset Upload**: Upload CSV files to create new disease prediction models
 
 ## Project Structure
 
@@ -46,9 +49,9 @@ diagnosify/
    pip install -r requirements.txt
    ```
 
-3. **Add your trained models:**
-   - Place your .sav model files in the `backend/models/` directory
-   - Follow the naming convention: `diabetes_model.sav`, `heart_model.sav`, `parkinsons_model.sav`
+3. **Add trained models:**
+   - Place the .sav model files in the `backend/models/` directory
+   - Follow the naming convention: `diabetes_model.sav`, `heart_model.sav`, `parkinsons_model.sav` (used in this project)
    - See `backend/models/README.md` for detailed requirements
 
 4. **Start the backend server:**
@@ -60,7 +63,28 @@ diagnosify/
 
 ### Frontend Setup
 
-The frontend is already configured. Make sure the backend is running before testing predictions.
+1. **Navigate to the frontend directory**  
+   ```bash
+   cd frontend
+   ```
+
+2. **Install dependencies**  
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**  
+   ```bash
+   npm run dev
+   ```
+
+4. The app should now be running locally. By default, you can access it at [http://localhost:3000](http://localhost:3000).
+
+> **Note:**  
+> - Ensure your backend server is running and accessible by the frontend.  
+> - To configure the backend API URL for local or online deployment, edit the `API_BASE_URL` variable in `frontend/src/utils/api.ts`.  
+>   - For local development, you can set it to `http://localhost:5000`.
+>   - For online deployment, use your deployed backend’s URL (e.g., `https://your-backend-domain.com`).
 
 ## Model Requirements
 
